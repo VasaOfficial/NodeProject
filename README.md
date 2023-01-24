@@ -1,3 +1,3 @@
 # NodeProject
 
-* First Node.js project.
+* Basic Node.js server.
