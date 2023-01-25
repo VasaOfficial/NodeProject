@@ -1,38 +1,21 @@
 const express = require("express");
 const app = express();
-const fs = require("fs");
 const port = 8080;
 
+app.use(express.static("public"));
+
 app.get("/", (req, res) => {
-  fs.readFile("./index.html", (err, data) => {
-    if (err) throw err;
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.end(data);
-  });
+  res.sendFile(__dirname + "/public/routes/index.html");
 });
-
 app.get("/about", (req, res) => {
-  fs.readFile("./about.html", (err, data) => {
-    if (err) throw err;
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.end(data);
-  });
+  res.sendFile(__dirname + "/public/routes/about.html");
 });
-
 app.get("/contact-me", (req, res) => {
-  fs.readFile("./contact-me.html", (err, data) => {
-    if (err) throw err;
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.end(data);
-  });
+  res.sendFile(__dirname + "/public/routes/contact-me.html");
 });
 
 app.use((req, res) => {
-  fs.readFile("./404.html", (err, data) => {
-    if (err) throw err;
-    res.writeHead(404, { "Content-Type": "text/html" });
-    res.end(data);
-  });
+  res.status(404).sendFile(__dirname + "/public/routes/404.html");
 });
 
 app.listen(port, () => {
