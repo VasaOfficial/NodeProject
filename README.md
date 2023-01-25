@@ -1,3 +1,3 @@
 # NodeProject
 
-* Basic Node.js server.
+* Basic Node.js and Express server.
